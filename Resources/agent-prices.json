@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated": "2026-10-09",
+  "updated": "2026-10-27",
   "sources": [
     "https://platform.claude.com/docs/en/about-claude/pricing",
     "https://platform.claude.com/docs/en/models/overview",
@@ -23,7 +23,8 @@
     "https://developers.openai.com/api/docs/deprecations",
     "https://developers.openai.com/codex/models",
     "https://learn.chatgpt.com/docs/models",
-    "https://learn.chatgpt.com/docs/pricing"
+    "https://learn.chatgpt.com/docs/pricing",
+    "https://ai.google.dev/gemini-api/docs/pricing"
   ],
   "notes": [
     "gpt-5.6, gpt-5.6-sol and gpt-daybreak-blue-latest carry a promotional price announced through at least 2026-11-21. Check them again after that date.",
@@ -36,7 +37,8 @@
     "gpt-6-astra and gpt-6.1-sol Ultrafast cost 6x Standard and require app support for a separate speed tier. Schema 1 only represents Standard and Fast.",
     "gpt-5.3-codex-spark has no published API price. Its existing gpt-5.3-codex family fallback (1.75/0.175/14 for input/cache reads/output) is not verified; schema 1 cannot exclude one ID from a family. gpt-oss models have no OpenAI token price and are excluded.",
     "gpt-5.4-cyber retired on 2026-10-01 and is still within the 91-day history window, but no token price is published in the reviewed official pages. It remains unpriced.",
-    "gpt-4-1106-preview appears with conflicting shutdown dates of 2026-03-26 and 2026-10-23, and has no model-specific price in the reviewed official pages. Its existing gpt-4 family fallback (30/30/60 for input/cache reads/output) is not verified; schema 1 cannot exclude one ID from a family."
+    "gpt-4-1106-preview appears with conflicting shutdown dates of 2026-03-26 and 2026-10-23, and has no model-specific price in the reviewed official pages. Its existing gpt-4 family fallback (30/30/60 for input/cache reads/output) is not verified; schema 1 cannot exclude one ID from a family.",
+    "Gemini prices are Google's standard paid tier for text. gemini-4-argon rises to $4/$20/$0.20 for input/output/cacheRead on 2026-12-01, and gemini-3.8-flash and gemini-3.6-flash to $1.50/$7.50/$0.15 on 2027-01-01. gemini-3.5-flash and gemini-3-pro-preview, which Gemini CLI can use, have no published price and stay unpriced."
   ],
   "claude": {
     "webSearch": 0.01,
@@ -179,6 +181,20 @@
       { "match": "business", "name": "Business" },
       { "match": "enterprise", "name": "Enterprise" },
       { "match": "edu", "name": "Edu" }
+    ]
+  },
+  "gemini": {
+    "models": [
+      { "id": "gemini-4-argon", "input": 2, "output": 10, "cacheRead": 0.1 },
+      { "id": "gemini-3.8-flash", "input": 0.75, "output": 3.75, "cacheRead": 0.075 },
+      { "id": "gemini-3.6-flash", "input": 0.75, "output": 3.75, "cacheRead": 0.075 },
+      { "id": "gemini-3.5-flash-lite", "input": 0.3, "output": 2.5, "cacheRead": 0.03 },
+      { "id": "gemini-3.1-pro", "input": 2, "output": 12, "cacheRead": 0.2, "longContext": { "above": 200000, "inputMultiplier": 2, "outputMultiplier": 1.5 } },
+      { "id": "gemini-3.1-flash-lite", "input": 0.25, "output": 1.5, "cacheRead": 0.025 },
+      { "id": "gemini-3-flash", "input": 0.5, "output": 3, "cacheRead": 0.05 },
+      { "id": "gemini-2.5-pro", "input": 1.25, "output": 10, "cacheRead": 0.125, "longContext": { "above": 200000, "inputMultiplier": 2, "outputMultiplier": 1.5 } },
+      { "id": "gemini-2.5-flash", "input": 0.3, "output": 2.5, "cacheRead": 0.03 },
+      { "id": "gemini-2.5-flash-lite", "input": 0.1, "output": 0.4, "cacheRead": 0.01 }
     ]
   }
 }
