@@ -211,7 +211,7 @@ enum GeminiAgentTests {
                         && abs(cached.savings - 900 * (0.3 - 0.03) / 1_000_000) < 1e-12,
                      "Gemini cache reads bill at their own rate and count as savings")
 
-        let base = #""schema":1,"updated":"2026-10-28","claude":{"webSearch":0.01,"usOnlyMultiplier":1.1,"models":[{"id":"claude-x","input":1,"output":1,"cacheRead":1}],"plans":[]},"codex":{"models":[{"id":"gpt-x","input":1,"output":1,"cacheRead":1}],"plans":[]}"#
+        let base = #""schema":1,"updated":"2099-01-01","claude":{"webSearch":0.01,"usOnlyMultiplier":1.1,"models":[{"id":"claude-x","input":1,"output":1,"cacheRead":1}],"plans":[]},"codex":{"models":[{"id":"gpt-x","input":1,"output":1,"cacheRead":1}],"plans":[]}"#
         let without = AgentPriceList.decode(Data("{\(base)}".utf8))
         let with = AgentPriceList.decode(Data(#"{\#(base),"gemini":{"models":[{"id":"gemini-x","input":1,"output":2,"cacheRead":0.1}]}}"#.utf8))
         suite.expect(without?.gemini.isEmpty == true && with?.gemini.map(\.id) == ["gemini-x"],
